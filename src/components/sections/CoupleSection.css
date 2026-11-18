@@ -1,0 +1,94 @@
+.couple-section {
+  position: relative;
+  width: 100%;
+  min-height: 500px; /* Berikan ruang tinggi minimal agar gambar besar tidak tumpang tindih dengan section bawahnya */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+/* Pembungkus Bingkai Merah */
+.couple-frame-wrap {
+  position: relative;
+  width: 2005%; /* <--- Menggunakan persentase > 100% agar bisa meluber keluar dari padding scrollable-content */
+  max-width: 800px; /* <--- Silakan besarkan angka ini sesuka hatimu (misal: 600px, 700px, dll) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  
+}
+
+.couple-bg-frame {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+/* Penataan Teks di Atas Bingkai Merah */
+.couple-text-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12% 15%; /* Jarak aman teks dari pinggir bingkai merah */
+  color: #fdfaf6;
+  font-family: 'Cormorant Garamond', serif;
+  box-sizing: border-box;
+}
+
+.couple-intro {
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: 0.3px;
+  margin-bottom: 10px;
+  opacity: 0.95;
+}
+
+.person-block {
+  margin: 4px 0;
+}
+
+.person-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: 34px; /* Ukuran nama pengantin bisa disesuaikan */
+  font-weight: 400;
+  color: #fff6e0;
+  line-height: 1.1;
+  margin-bottom: 2px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.parent-info {
+  font-size: 11px;
+  letter-spacing: 0.3px;
+  opacity: 0.9;
+  line-height: 1.3;
+}
+
+.couple-ampersand {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: #dfbc77;
+  margin: 2px 0;
+}
+
+.couple-duo-prayer {
+  font-size: 11px;
+  line-height: 1.4;
+  margin-top: 10px;
+  opacity: 0.95;
+}
+
+.couple-duo-prayer span {
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #fff1cc;
+}

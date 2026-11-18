@@ -1,0 +1,170 @@
+.gift-section {
+  position: relative;
+  width: 100%;
+  background-color: #580c0c; /* Full background merah tua */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 15px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  margin: 20px 0;
+}
+
+/* Pembungkus Konten */
+.gift-card-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 340px; /* Batasan lebar agar tidak melebar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  color: #fdfaf6;
+  font-family: 'Cormorant Garamond', serif;
+  text-align: center;
+}
+
+/* Ikon Kado di Atas */
+.gift-icon-header {
+  display: flex;
+  justify-content: center;
+  color: #fff6e0;
+  margin-bottom: 15px;
+}
+
+/* Tombol Kirim Hadiah & Minimize */
+.gift-toggle-btn {
+  width: 100%;
+  background: #f0debe;
+  border: none;
+  border-radius: 20px;
+  padding: 12px 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #362312;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.gift-toggle-btn:hover {
+  background: #e4cc9e;
+  transform: translateY(-2px);
+}
+
+.minimize-btn {
+  margin-top: 15px;
+}
+
+/* Konten Dropdown Saat Terbuka */
+.gift-expanded-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn 0.4s ease-in-out;
+  width: 100%;
+}
+
+.gift-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 36px;
+  font-weight: 400;
+  color: #fff6e0;
+  margin-bottom: 2px;
+}
+
+.gift-subtitle {
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+/* Kartu Rekening / Alamat Berwarna Krem */
+.bank-card {
+  position: relative;
+  width: 100%;
+  background-color: #f2e3c6;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 15px;
+  text-align: left;
+  color: #362312;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+.bank-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2px;
+}
+
+.bca-logo {
+  font-family: sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 16px;
+  letter-spacing: -1px;
+  color: #0060af;
+}
+
+.account-name {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.account-number {
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.gift-address-title {
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin: 5px 0 12px 0;
+  opacity: 0.9;
+}
+
+.address-card {
+  text-align: center;
+}
+
+.gift-address-text {
+  font-size: 11px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+/* Tombol Salin */
+.copy-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  background: #580c0c;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fdfaf6;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.copy-btn:hover {
+  background: #7a1414;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

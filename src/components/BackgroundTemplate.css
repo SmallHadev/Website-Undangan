@@ -1,0 +1,125 @@
+.bg-template-container {
+  position: relative;
+  width: 100%;
+  height: 100%; /* Wajib 100% agar pas di dalam bingkai HP (844px) */
+  overflow: hidden;
+}
+
+/* ================= BACKGROUND TETAP (FIXED) ================= */
+.fixed-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Layer 1: Ukuran Dasar 20 & 21 */
+.l-base { z-index: 1; }
+.bg-img-cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Layer 2: Rumah Tradisional (15.png) */
+.l-house { z-index: 2; }
+.house-element {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  margin-left: -120%;
+  width: 240%;
+  height: auto;
+  display: block;
+}
+
+/* Standar Kelas Dekorasi Bunga & Wayang */
+.decor-wrap {
+  position: absolute;
+  pointer-events: none;
+}
+
+.decor-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mirror {
+  transform: scaleX(-1);
+}
+
+.origin-bottom {
+  transform-origin: bottom center;
+}
+
+.origin-bottom-left {
+  transform-origin: bottom left;
+}
+
+/* Posisi Lapisan Ornamen Sesuai OpeningScene */
+.z-1 { z-index: 4; } /* Rumput */
+.z-3 { z-index: 7; } /* Bunga Putih */
+.z-7 { z-index: 9; } /* Bunga Lily Besar */
+.z-5 { z-index: 8; } /* Bunga Oren */
+.z-2 { z-index: 5; } /* Wayang */
+
+.bot-left-grass { bottom: 95px; left: -10px; width: 150px; }
+.bot-right-grass { bottom: 95px; right: -10px; width: 120px; }
+
+.bot-left-white { bottom: -95px; left: -25px; width: 195px; }
+.bot-right-white { bottom: -95px; right: -25px; width: 195px; }
+
+.bot-left-bigpink { bottom: -80px; left: -45px; width: 165px; }
+.bot-right-bigpink { bottom: -80px; right: -45px; width: 165px; }
+
+.mc-orange-l { bottom: 20px; left: -15px; width: 150px; }
+.mc-orange-r { bottom: 20px; right: -15px; width: 150px; }
+
+.mc-wayang-l { bottom: 15px; left: 42px; width: 155px; }
+.mc-wayang-r { bottom: 15px; right: 42px; width: 155px; }
+
+/* Layer 8: Background Putih Transparansi 40% */
+.l-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* ================= AREA KONTEN YANG BISA DI-SCROLL ================= */
+.bg-template-scroll-area {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%; /* Wajib 100% agar area scroll terkunci di dalam layar HP */
+  overflow-y: auto; /* KUNCI UTAMA: Agar halamannya bisa di-scroll ke bawah */
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding: 40px 20px 100px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Sembunyikan scrollbar bawaan agar rapi seperti aplikasi native */
+.bg-template-scroll-area::-webkit-scrollbar {
+  display: none;
+}
+.bg-template-scroll-area {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

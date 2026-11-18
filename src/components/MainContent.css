@@ -1,0 +1,239 @@
+.main-content-container {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+/* ================= BACKGROUND TETAP (FIXED) ================= */
+.fixed-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.mc-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Layer 1: Gambar 20 & 21 */
+.mc-l1 { z-index: 1; }
+.bg-base-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Layer 2: Gambar 15 (Rumah tradisional) - Disamakan persis dengan .house di OpeningScene */
+.mc-l2 { z-index: 2; }
+.house-bg {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  margin-left: -120%;
+  width: 240%;
+  height: auto;
+  display: block;
+}
+
+/* --- DEKORASI BUNGA, RUMPUT & WAYANG (PERSIS OPENING SCENE) --- */
+.decor-wrap {
+  position: absolute;
+  pointer-events: none;
+}
+
+.decor-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mirror {
+  transform: scaleX(-1);
+}
+
+.origin-bottom {
+  transform-origin: bottom center;
+}
+
+.origin-bottom-left {
+  transform-origin: bottom left;
+}
+
+.origin-top-left {
+  transform-origin: top left;
+}
+
+/* Urutan Lapisan Dekorasi Sesuai OpeningScene & Permintaanmu */
+.z-1 { z-index: 4; } /* Rumput (4.png) */
+.z-3 { z-index: 7; } /* Bunga Putih (1.png) */
+.z-7 { z-index: 9; } /* Bunga Pink Besar (8.png) */
+.z-5 { z-index: 8; } /* Bunga Oren (2.png) */
+.z-2 { z-index: 5; } /* Wayang (11.png & 10.png) */
+
+/* 1. Rumput (4.png) - Layer 3 */
+.bot-left-grass {
+  bottom: 95px;
+  left: -10px;
+  width: 120px;
+}
+.bot-right-grass {
+  bottom: 95px;
+  right: -10px;
+  width: 120px;
+}
+
+/* 3. Bunga Putih (1.png) - Layer 4 */
+.bot-left-white {
+  bottom: -95px;
+  left: -25px;
+  width: 145px;
+}
+.bot-right-white {
+  bottom: -95px;
+  right: -25px;
+  width: 145px;
+}
+
+/* 7. Bunga Pink Besar (8.png) - Layer 5 */
+.bot-left-bigpink {
+  bottom: -80px;
+  left: -45px;
+  width: 165px;
+}
+.bot-right-bigpink {
+  bottom: -80px;
+  right: -45px;
+  width: 165px;
+}
+
+/* 5. Bunga Putih, Oren, Daun (2.png) - Layer 6 */
+.mc-orange-l {
+  bottom: 20px;
+  left: -15px;
+  width: 150px;
+}
+.mc-orange-r {
+  bottom: 20px;
+  right: -15px;
+  width: 150px;
+}
+
+/* Wayang (11.png di Kiri, 10.png di Kanan) - Layer 7 */
+.mc-wayang-l {
+  bottom: 15px;
+  left: 42px;
+  width: 155px;
+}
+.mc-wayang-r {
+  bottom: 15px;
+  right: 42px;
+  width: 155px;
+}
+
+/* Layer 8: Background Putih Transparansi 40% */
+.mc-l8 {
+  z-index: 8;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* ================= KONTEN SCROLLABLE ================= */
+.scrollable-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px 20px 80px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
+  color: #362312;
+  font-family: 'Cormorant Garamond', serif;
+  box-sizing: border-box;
+  
+}
+
+.content-section {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(110, 78, 46, 0.15);
+  border-radius: 12px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(4px);
+}
+
+.content-section h2 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: #4a3520;
+}
+
+.guest-name {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.section-subtitle {
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #6e4e2e;
+  font-weight: 600;
+}
+
+.couple-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 36px;
+  font-weight: 400;
+  color: #2b1d10;
+  margin: 10px 0;
+}
+
+.couple-desc {
+  font-size: 14px;
+  color: #5c432b;
+  margin-bottom: 15px;
+}
+
+.ampersand {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 24px;
+  color: #6e4e2e;
+  display: block;
+  margin: 5px 0;
+}
+
+.card-box {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4a3520;
+}
+
+.footer-space {
+  margin-bottom: 40px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.footer-sign {
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  margin-top: 15px;
+  color: #362312;
+}

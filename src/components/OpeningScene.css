@@ -1,0 +1,288 @@
+/* DUNIA PERTAMA */
+.world {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+  will-change: transform;
+  z-index: 1;
+}
+
+/* GUNUNG */
+.mountain {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  margin-left: -100%;
+  width: 200%;
+  height: auto;
+  display: block;
+  z-index: 1;
+}
+
+/* RUMAH */
+.house {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  margin-left: -120%;
+  width: 240%;
+  height: auto;
+  display: block;
+  z-index: 2;
+}
+
+/* FRAME DIMENSI KEDUA */
+.frame-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.frame {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+/* --- TAMBAHAN DEKORASI BUNGA, RUMPUT & WAYANG --- */
+.decor-wrap {
+  position: absolute;
+  pointer-events: none;
+}
+
+.decor-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mirror {
+  transform: scaleX(-1);
+}
+
+.origin-bottom {
+  transform-origin: bottom center;
+}
+
+.origin-bottom-left {
+  transform-origin: bottom left;
+}
+
+.origin-top-left {
+  transform-origin: top left;
+}
+
+/* Urutan Lapisan 1 - 8 */
+.z-1 { z-index: 4; }
+.z-2 { z-index: 5; }
+.z-3 { z-index: 7; }
+.z-4 { z-index: 6; }
+.z-5 { z-index: 8; }
+.z-6 { z-index: 7; }
+.z-7 { z-index: 9; }
+.z-8 { z-index: 11; }
+
+/* Pojok Atas */
+.top-left {
+  top: -110px;
+  left: -55px;
+  width: 155px;
+  transform: rotate(50deg);
+}
+.top-right {
+  top: -110px;
+  right: -55px;
+  width: 155px;
+  transform: scaleX(-1) rotate(50deg);
+}
+
+/* 1. Rumput */
+.bot-left-grass {
+  bottom: 95px;
+  left: -10px;
+  width: 120px;
+}
+.bot-right-grass {
+  bottom: 95px;
+  right: -10px;
+  width: 120px;
+}
+
+/* 2. Wayang */
+.bot-left-wayang {
+  bottom: 5px;
+  left: 38px;
+  width: 155px;
+  transform: rotate(10deg);
+}
+.bot-right-wayang {
+  bottom: 5px;
+  right: 38px;
+  width: 155px;
+  transform: scaleX(-1) rotate(10deg);
+}
+
+/* Layer tepat di depan 5.png (z-index: 5) */
+.z-wayang-couple {
+  z-index: 6;
+}
+
+/* Wayang Perempuan (11.png) & Laki-laki (10.png) */
+.bot-left-wayang-couple {
+  bottom: 15px;
+  left: 42px;
+  width: 155px;
+}
+.bot-right-wayang-couple {
+  bottom: 15px;
+  right: 42px;
+  width: 155px;
+}
+
+/* 3. Bunga Putih */
+.bot-left-white {
+  bottom: -95px;
+  left: -25px;
+  width: 145px;
+}
+.bot-right-white {
+  bottom: -95px;
+  right: -25px;
+  width: 145px;
+}
+
+/* 4. Belukar */
+.bot-left-bush {
+  bottom: 250px;
+  left: -85px;
+  width: 155px;
+}
+.bot-right-bush {
+  bottom: 250px;
+  right: -85px;
+  width: 155px;
+}
+
+/* 5. Bunga Putih, Oren, Daun */
+.bot-left-orange {
+  bottom: 20px;
+  left: -15px;
+  width: 150px;
+}
+.bot-right-orange {
+  bottom: 20px;
+  right: -15px;
+  width: 150px;
+}
+
+/* 6. Bunga Pink & Daun */
+.bot-left-pink {
+  bottom: 10px;
+  left: -35px;
+  width: 150px;
+}
+.bot-right-pink {
+  bottom: 10px;
+  right: -35px;
+  width: 150px;
+}
+
+/* 7. Bunga Pink Besar */
+.bot-left-bigpink {
+  bottom: -80px;
+  left: -45px;
+  width: 165px;
+}
+.bot-right-bigpink {
+  bottom: -80px;
+  right: -45px;
+  width: 165px;
+}
+
+/* 8. Bunga Putih Besar Tengah */
+.bot-center-bigwhite {
+  bottom: -150px;
+  left: 50%;
+  margin-left: -90px;
+  width: 180px;
+  transform: rotate(-270deg);
+}
+
+/* --- TEKS TENGAH (THE WEDDING OF IMAM & IFA) --- */
+.wedding-title-wrap {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  padding: 35px 20px;
+  width: 90%;
+  pointer-events: none;
+  background: transparent;
+  isolation: isolate;
+}
+
+.wedding-title-wrap::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -40px;
+  left: -30px;
+  right: -30px;
+  bottom: -120px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 248, 238, 0.92) 0%,
+    rgba(255, 248, 238, 0.55) 38%,
+    rgba(255, 248, 238, 0.18) 70%,
+    transparent 100%
+  );
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.wedding-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #4a3520;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.wedding-names {
+  font-family: 'Great Vibes', cursive;
+  font-size: 46px;
+  line-height: 1.05;
+  color: #362312;
+  font-weight: 400;
+  text-shadow: 0 2px 6px rgba(255, 250, 240, 0.85);
+}
+
+.wedding-names span {
+  display: block;
+}
+
+.wedding-amp {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 30px;
+  line-height: 0.9;
+  color: #6e4e2e;
+  margin: 5px 0;
+}

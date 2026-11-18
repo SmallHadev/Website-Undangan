@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Great+Vibes&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: #d8c5a5;
+  overflow: hidden;
+}
+
+/* AREA PREVIEW MOBILE */
+#root {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.opening {
+  position: relative;
+  width: min(100vw, 390px, calc(100svh * 390 / 844));
+  aspect-ratio: 390 / 844;
+  overflow: hidden;
+  background: #ead8b9;
+  isolation: isolate;
+}
+
+/* DESKTOP PREVIEW */
+@media (min-width: 600px) {
+  body {
+    background: #29241e;
+  }
+
+  .opening {
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+  }
+}
