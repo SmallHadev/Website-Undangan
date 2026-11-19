@@ -74,20 +74,3 @@ body {
   min-height: 100dvh;
 }
 
-.opening-next-btn {
-  position: absolute;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 99;
-  padding: 10px 24px;
-  background: #e3b23c;
-  color: #24190e;
-  border: 1px solid #9c721c;
-  border-radius: 20px;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-}
