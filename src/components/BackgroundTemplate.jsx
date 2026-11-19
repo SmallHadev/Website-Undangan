@@ -1,11 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import "./BackgroundTemplate.css";
 
 function BackgroundTemplate({ children }) {
+  const rootRef = useRef(null);
+
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Animasi tanaman tertiup angin halus (kiri & kanan)
       gsap.to(".sway-left", {
         rotation: 2.5,
         x: 2,
@@ -24,7 +25,6 @@ function BackgroundTemplate({ children }) {
         ease: "sine.inOut",
       });
 
-      // Animasi wayang mengapung tipis di bawah
       gsap.to(".float-wayang", {
         y: -8,
         duration: 3.5,
@@ -32,14 +32,14 @@ function BackgroundTemplate({ children }) {
         yoyo: true,
         ease: "sine.inOut",
       });
-    });
+    }, rootRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <div className="bg-template-container">
-      {/* ================= BACKGROUND TETAP (FIXED) ================= */}
+    <div className="bg-template-container" ref={rootRef}>
+      {/* ================= BACKGROUND TETAP PER SECTION ================= */}
       <div className="fixed-background">
         {/* Layer 1: Gambar 20 & 21 (Pola Ukiran Atas) */}
         <div className="bg-layer l-base">
@@ -94,10 +94,10 @@ function BackgroundTemplate({ children }) {
 
         {/* Layer 7: Gambar 11 (Kiri) & Gambar 10 (Kanan) Wayang */}
         <div className="bg-layer l-wayang">
-          <div className="decor-wrap mc-wayang-l z-7">
+          <div className="decor-wrap mc-wayang-l z-2">
             <img src="/assets/11.png" className="float-wayang" alt="Wayang kiri" />
           </div>
-          <div className="decor-wrap mc-wayang-r z-7">
+          <div className="decor-wrap mc-wayang-r z-2">
             <img src="/assets/10.png" className="float-wayang" alt="Wayang kanan" />
           </div>
         </div>
@@ -106,6 +106,7 @@ function BackgroundTemplate({ children }) {
         <div className="bg-layer l-overlay" />
       </div>
 
+      {/* Konten Section di Atas Background */}
       <div className="bg-template-scroll-area">
         {children}
       </div>

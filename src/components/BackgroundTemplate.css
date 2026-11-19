@@ -1,11 +1,14 @@
 .bg-template-container {
   position: relative;
   width: 100%;
-  height: 100%; /* Wajib 100% agar pas di dalam bingkai HP (844px) */
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   overflow: hidden;
 }
 
-/* ================= BACKGROUND TETAP (FIXED) ================= */
+/* ================= BACKGROUND DIAM DI DALAM SECTION ================= */
 .fixed-background {
   position: absolute;
   inset: 0;
@@ -23,7 +26,6 @@
   height: 100%;
 }
 
-/* Layer 1: Ukuran Dasar 20 & 21 */
 .l-base { z-index: 1; }
 .bg-img-cover {
   position: absolute;
@@ -33,7 +35,6 @@
   object-fit: cover;
 }
 
-/* Layer 2: Rumah Tradisional (15.png) */
 .l-house { z-index: 2; }
 .house-element {
   position: absolute;
@@ -45,7 +46,6 @@
   display: block;
 }
 
-/* Standar Kelas Dekorasi Bunga & Wayang */
 .decor-wrap {
   position: absolute;
   pointer-events: none;
@@ -57,41 +57,32 @@
   display: block;
 }
 
-.mirror {
-  transform: scaleX(-1);
-}
+.mirror { transform: scaleX(-1); }
+.origin-bottom { transform-origin: bottom center; }
+.origin-bottom-left { transform-origin: bottom left; }
 
-.origin-bottom {
-  transform-origin: bottom center;
-}
+.z-1 { z-index: 4; }
+.z-3 { z-index: 7; }
+.z-7 { z-index: 9; }
+.z-5 { z-index: 8; }
+.z-2 { z-index: 5; }
 
-.origin-bottom-left {
-  transform-origin: bottom left;
-}
+/* Menggunakan vw/clamp agar dekorasi menyesuaikan lebar berbagai HP */
+.bot-left-grass { bottom: 11%; left: -3%; width: clamp(105px, 31vw, 135px); }
+.bot-right-grass { bottom: 11%; right: -3%; width: clamp(105px, 31vw, 135px); }
 
-/* Posisi Lapisan Ornamen Sesuai OpeningScene */
-.z-1 { z-index: 4; } /* Rumput */
-.z-3 { z-index: 7; } /* Bunga Putih */
-.z-7 { z-index: 9; } /* Bunga Lily Besar */
-.z-5 { z-index: 8; } /* Bunga Oren */
-.z-2 { z-index: 5; } /* Wayang */
+.bot-left-white { bottom: -11%; left: -6%; width: clamp(135px, 40vw, 175px); }
+.bot-right-white { bottom: -11%; right: -6%; width: clamp(135px, 40vw, 175px); }
 
-.bot-left-grass { bottom: 95px; left: -10px; width: 150px; }
-.bot-right-grass { bottom: 95px; right: -10px; width: 120px; }
+.bot-left-bigpink { bottom: -9%; left: -11%; width: clamp(140px, 42vw, 175px); }
+.bot-right-bigpink { bottom: -9%; right: -11%; width: clamp(140px, 42vw, 175px); }
 
-.bot-left-white { bottom: -95px; left: -25px; width: 195px; }
-.bot-right-white { bottom: -95px; right: -25px; width: 195px; }
+.mc-orange-l { bottom: 2%; left: -4%; width: clamp(130px, 38vw, 160px); }
+.mc-orange-r { bottom: 2%; right: -4%; width: clamp(130px, 38vw, 160px); }
 
-.bot-left-bigpink { bottom: -80px; left: -45px; width: 165px; }
-.bot-right-bigpink { bottom: -80px; right: -45px; width: 165px; }
+.mc-wayang-l { bottom: 2%; left: 10%; width: clamp(130px, 39vw, 165px); }
+.mc-wayang-r { bottom: 2%; right: 10%; width: clamp(130px, 39vw, 165px); }
 
-.mc-orange-l { bottom: 20px; left: -15px; width: 150px; }
-.mc-orange-r { bottom: 20px; right: -15px; width: 150px; }
-
-.mc-wayang-l { bottom: 15px; left: 42px; width: 155px; }
-.mc-wayang-r { bottom: 15px; right: 42px; width: 155px; }
-
-/* Layer 8: Background Putih Transparansi 40% */
 .l-overlay {
   position: absolute;
   inset: 0;
@@ -99,27 +90,11 @@
   background: rgba(255, 255, 255, 0.4);
 }
 
-/* ================= AREA KONTEN YANG BISA DI-SCROLL ================= */
+/* ================= KONTEN DI ATAS BACKGROUND ================= */
 .bg-template-scroll-area {
   position: relative;
   z-index: 10;
   width: 100%;
-  height: 100%; /* Wajib 100% agar area scroll terkunci di dalam layar HP */
-  overflow-y: auto; /* KUNCI UTAMA: Agar halamannya bisa di-scroll ke bawah */
-  overflow-x: hidden;
+  padding: clamp(32px, 8vw, 48px) clamp(14px, 4vw, 20px);
   box-sizing: border-box;
-  padding: 40px 20px 100px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Sembunyikan scrollbar bawaan agar rapi seperti aplikasi native */
-.bg-template-scroll-area::-webkit-scrollbar {
-  display: none;
-}
-.bg-template-scroll-area {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }

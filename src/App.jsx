@@ -2,11 +2,13 @@ import { useState } from "react";
 import InvitationCover from "./components/InvitationCover";
 import LoadingScreen from "./components/LoadingScreen";
 import OpeningScene from "./components/OpeningScene";
-import MainContent from "./components/MainContent";
+import CoupleSection from "./components/sections/CoupleSection";
+import EventDetail from "./components/sections/EventDetail";
+import GiftSection from "./components/sections/GiftSection";
 import "./App.css";
 
 function App() {
-  const [stage, setStage] = useState("cover"); 
+  const [stage, setStage] = useState("cover");
   // Tahapan: "cover" -> "loading" -> "opening" -> "loading-second" -> "main"
 
   return (
@@ -23,26 +25,12 @@ function App() {
 
       {/* 3. Scene Opening (Gunung & Rumah) */}
       {stage === "opening" && (
-        <div style={{ position: "relative", width: "100%", height: "100%" }}>
+        <div className="opening-stage-wrap">
           <OpeningScene />
-          {/* Tombol debug untuk lanjut ke loading kedua */}
-          <button 
+          <button
+            type="button"
+            className="opening-next-btn"
             onClick={() => setStage("loading-second")}
-            style={{
-              position: "absolute",
-              bottom: "30px",
-              left: "50%",
-              transform: "translateX(-50%)",
-              zIndex: 99,
-              padding: "10px 24px",
-              background: "#e3b23c",
-              border: "1px solid #9c721c",
-              borderRadius: "20px",
-              fontFamily: "'Cormorant Garamond', serif",
-              fontSize: "16px",
-              fontWeight: 600,
-              cursor: "pointer"
-            }}
           >
             Buka Undangan
           </button>
@@ -54,8 +42,14 @@ function App() {
         <LoadingScreen onComplete={() => setStage("main")} />
       )}
 
-      {/* 5. Konten Utama Undangan (Bisa Di-scroll & Background Diam) */}
-      {stage === "main" && <MainContent />}
+      {/* 5. Alur Section Langsung (Tiap section atur background-nya sendiri) */}
+      {stage === "main" && (
+        <div className="sections-flow">
+          <CoupleSection />
+          <EventDetail />
+          <GiftSection />
+        </div>
+      )}
     </main>
   );
 }
