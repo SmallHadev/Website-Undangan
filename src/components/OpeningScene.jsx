@@ -9,6 +9,8 @@ function OpeningScene() {
   const frameRef = useRef(null);
 
   useEffect(() => {
+    document.body.classList.add("opening-no-scroll");
+    document.documentElement.classList.add("opening-no-scroll");
     const ctx = gsap.context(() => {
       // Kondisi awal
       gsap.set(worldRef.current, {
@@ -157,7 +159,11 @@ function OpeningScene() {
       });
     });
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      document.body.classList.remove("opening-no-scroll");
+      document.documentElement.classList.remove("opening-no-scroll");
+    };
   }, []);
 
   return (
