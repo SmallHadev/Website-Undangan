@@ -1,3 +1,11 @@
+.opening-scene-root {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100dvh;
+  overflow: hidden;
+}
+
 /* DUNIA PERTAMA */
 .world {
   position: absolute;
@@ -39,7 +47,7 @@
   inset: 0;
   width: 100%;
   height: 110%;
-  top: -50px;
+  top: clamp(-56px, -6vh, -24px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,14 +57,14 @@
 }
 
 .frame {
-  width: 200%;
+  width: clamp(160%, 200vw, 215%);
   height: 100%;
   object-fit: contain;
   object-position: center;
   display: block;
 }
 
-/* --- TAMBAHAN DEKORASI BUNGA, RUMPUT & WAYANG --- */
+/* --- TAMBAHAN DEKORASI BUNGA, RUMPUT & WAYANG (RESPONSIF) --- */
 .decor-wrap {
   position: absolute;
   pointer-events: none;
@@ -96,139 +104,139 @@
 
 /* Pojok Atas */
 .top-left {
-  top: -110px;
-  left: -55px;
-  width: 155px;
+  top: clamp(-125px, -28.2vw, -85px);
+  left: clamp(-68px, -14.1vw, -40px);
+  width: clamp(120px, 39.7vw, 180px);
   transform: rotate(50deg);
 }
 .top-right {
-  top: -110px;
-  right: -55px;
-  width: 155px;
+  top: clamp(-125px, -28.2vw, -85px);
+  right: clamp(-68px, -14.1vw, -40px);
+  width: clamp(120px, 39.7vw, 180px);
   transform: scaleX(-1) rotate(50deg);
 }
 
 /* 1. Rumput */
 .bot-left-grass {
-  bottom: 95px;
-  left: -10px;
-  width: 120px;
+  bottom: clamp(75px, 24.3vw, 115px);
+  left: clamp(-14px, -2.6vw, -6px);
+  width: clamp(92px, 30.8vw, 140px);
 }
 .bot-right-grass {
-  bottom: 95px;
-  right: -10px;
-  width: 120px;
+  bottom: clamp(75px, 24.3vw, 115px);
+  right: clamp(-14px, -2.6vw, -6px);
+  width: clamp(92px, 30.8vw, 140px);
 }
 
 /* 2. Wayang */
 .bot-left-wayang {
-  bottom: 5px;
-  left: 38px;
-  width: 155px;
+  bottom: clamp(4px, 1.3vw, 10px);
+  left: clamp(28px, 9.7vw, 48px);
+  width: clamp(120px, 39.7vw, 180px);
   transform: rotate(10deg);
 }
 .bot-right-wayang {
-  bottom: 5px;
-  right: 38px;
-  width: 155px;
+  bottom: clamp(4px, 1.3vw, 10px);
+  right: clamp(28px, 9.7vw, 48px);
+  width: clamp(120px, 39.7vw, 180px);
   transform: scaleX(-1) rotate(10deg);
 }
 
-/* Layer tepat di depan 5.png (z-index: 5) */
+/* Layer tepat di depan 5.png */
 .z-wayang-couple {
   z-index: 6;
 }
 
 /* Wayang Perempuan (11.png) & Laki-laki (10.png) */
 .bot-left-wayang-couple {
-  bottom: 15px;
-  left: 42px;
-  width: 155px;
+  bottom: clamp(10px, 3.8vw, 22px);
+  left: clamp(32px, 10.8vw, 52px);
+  width: clamp(120px, 39.7vw, 180px);
 }
 .bot-right-wayang-couple {
-  bottom: 15px;
-  right: 42px;
-  width: 155px;
+  bottom: clamp(10px, 3.8vw, 22px);
+  right: clamp(32px, 10.8vw, 52px);
+  width: clamp(120px, 39.7vw, 180px);
 }
 
 /* 3. Bunga Putih */
 .bot-left-white {
-  bottom: -95px;
-  left: -25px;
-  width: 145px;
+  bottom: clamp(-110px, -24.3vw, -70px);
+  left: clamp(-32px, -6.4vw, -16px);
+  width: clamp(112px, 37.2vw, 170px);
 }
 .bot-right-white {
-  bottom: -95px;
-  right: -25px;
-  width: 145px;
+  bottom: clamp(-110px, -24.3vw, -70px);
+  right: clamp(-32px, -6.4vw, -16px);
+  width: clamp(112px, 37.2vw, 170px);
 }
 
 /* 4. Belukar */
 .bot-left-bush {
-  bottom: 250px;
-  left: -85px;
-  width: 155px;
+  bottom: clamp(190px, 64.1vw, 290px);
+  left: clamp(-98px, -21.8vw, -60px);
+  width: clamp(120px, 39.7vw, 180px);
 }
 .bot-right-bush {
-  bottom: 250px;
-  right: -85px;
-  width: 155px;
+  bottom: clamp(190px, 64.1vw, 290px);
+  right: clamp(-98px, -21.8vw, -60px);
+  width: clamp(120px, 39.7vw, 180px);
 }
 
 /* 5. Bunga Putih, Oren, Daun */
 .bot-left-orange {
-  bottom: 20px;
-  left: -15px;
-  width: 150px;
+  bottom: clamp(14px, 5.1vw, 28px);
+  left: clamp(-20px, -3.8vw, -10px);
+  width: clamp(116px, 38.5vw, 175px);
 }
 .bot-right-orange {
-  bottom: 20px;
-  right: -15px;
-  width: 150px;
+  bottom: clamp(14px, 5.1vw, 28px);
+  right: clamp(-20px, -3.8vw, -10px);
+  width: clamp(116px, 38.5vw, 175px);
 }
 
 /* 6. Bunga Pink & Daun */
 .bot-left-pink {
-  bottom: 10px;
-  left: -35px;
-  width: 150px;
+  bottom: clamp(8px, 2.6vw, 16px);
+  left: clamp(-42px, -9vw, -24px);
+  width: clamp(116px, 38.5vw, 175px);
 }
 .bot-right-pink {
-  bottom: 10px;
-  right: -35px;
-  width: 150px;
+  bottom: clamp(8px, 2.6vw, 16px);
+  right: clamp(-42px, -9vw, -24px);
+  width: clamp(116px, 38.5vw, 175px);
 }
 
 /* 7. Bunga Pink Besar */
 .bot-left-bigpink {
-  bottom: -80px;
-  left: -45px;
-  width: 165px;
+  bottom: clamp(-95px, -20.5vw, -58px);
+  left: clamp(-54px, -11.5vw, -32px);
+  width: clamp(128px, 42.3vw, 190px);
 }
 .bot-right-bigpink {
-  bottom: -80px;
-  right: -45px;
-  width: 165px;
+  bottom: clamp(-95px, -20.5vw, -58px);
+  right: clamp(-54px, -11.5vw, -32px);
+  width: clamp(128px, 42.3vw, 190px);
 }
 
 /* 8. Bunga Putih Besar Tengah */
 .bot-center-bigwhite {
-  bottom: -150px;
+  bottom: clamp(-170px, -38.5vw, -110px);
   left: 50%;
-  margin-left: -90px;
-  width: 200px;
+  width: clamp(150px, 51.3vw, 230px);
+  margin-left: calc(clamp(150px, 51.3vw, 230px) * -0.5);
   transform: rotate(-270deg);
 }
 
-/* --- TEKS TENGAH (THE WEDDING OF IMAM & IFA) --- */
+/* --- TEKS TENGAH (JUDUL & AYAT AR-RUM 2 TAHAP) --- */
 .wedding-title-wrap {
   position: absolute;
-  top: 45%;
+  top: 44%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
   text-align: center;
-  padding: 35px 20px;
+  padding: clamp(18px, 5vw, 32px) clamp(12px, 4vw, 20px);
   width: 90%;
   pointer-events: none;
   background: transparent;
@@ -239,10 +247,10 @@
   content: "";
   position: absolute;
   z-index: -1;
-  top: -40px;
-  left: -30px;
-  right: -30px;
-  bottom: -120px;
+  top: clamp(-48px, -10vw, -28px);
+  left: clamp(-34px, -7vw, -18px);
+  right: clamp(-34px, -7vw, -18px);
+  bottom: clamp(-125px, -28vw, -75px);
   background: radial-gradient(
     ellipse at center,
     rgba(255, 248, 238, 0.92) 0%,
@@ -254,21 +262,25 @@
   pointer-events: none;
 }
 
+.wedding-title {
+  width: 100%;
+}
+
 .wedding-subtitle {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(14px, 4.6vw, 20px);
   font-weight: 600;
-  letter-spacing: 3px;
+  letter-spacing: clamp(1.5px, 0.7vw, 3px);
   text-transform: uppercase;
   color: #4a3520;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: clamp(18px, 7vw, 36px);
+  margin-bottom: clamp(18px, 7vw, 36px);
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
 }
 
 .wedding-names {
-  font-family: 'Great Vibes', cursive;
-  font-size: 46px;
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(32px, 11vw, 46px);
   line-height: 1.05;
   color: #362312;
   font-weight: 400;
@@ -280,13 +292,47 @@
 }
 
 .wedding-amp {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: "Cormorant Garamond", serif;
   font-style: italic;
-  font-size: 30px;
+  font-size: clamp(20px, 7vw, 30px);
   line-height: 0.9;
   color: #6e4e2e;
-  margin: 5px 0;
+  margin: clamp(3px, 1vw, 5px) 0;
 }
+
+.ar-rum-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(8px, 2.5vw, 16px) clamp(18px, 6vw, 28px);
+}
+
+.ar-rum-text {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: clamp(13.5px, 3.8vw, 16px);
+  font-weight: 500;
+  line-height: 1.5;
+  color: #362312;
+  max-width: min(76%, 270px);
+  text-shadow: 0 1px 4px rgba(255, 250, 240, 0.92);
+}
+
+.ar-rum-source {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(11.5px, 3.2vw, 13.5px);
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #6e4e2e;
+  margin-top: clamp(8px, 2.5vw, 12px);
+  text-shadow: 0 1px 3px rgba(255, 250, 240, 0.9);
+}
+
+/* KUNCI SCROLL SAAT OPENING SCENE AKTIF */
 html.opening-no-scroll,
 body.opening-no-scroll {
   overflow: hidden !important;

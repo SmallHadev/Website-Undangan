@@ -2,17 +2,21 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import "./OpeningScene.css";
 
-function OpeningScene() {
+function OpeningScene({ isActive = true, onComplete }) {
+  const sceneRef = useRef(null);
   const worldRef = useRef(null);
   const mountainRef = useRef(null);
   const houseRef = useRef(null);
   const frameRef = useRef(null);
 
   useEffect(() => {
+    if (!isActive) return;
+
     document.body.classList.add("opening-no-scroll");
     document.documentElement.classList.add("opening-no-scroll");
+
     const ctx = gsap.context(() => {
-      // Kondisi awal
+      // Kondisi awal saat animasi opening dimulai
       gsap.set(worldRef.current, {
         scale: 1,
         opacity: 1,
@@ -38,32 +42,34 @@ function OpeningScene() {
         y: 25,
       });
 
-      // Kondisi awal teks tengah
+      // Kondisi awal teks judul & 2 bagian ayat
       gsap.set(".wedding-title", {
         opacity: 0,
         y: 15,
         scale: 0.95,
       });
 
-      // Urutan animasi
-      const tl = gsap.timeline();
+      gsap.set([".ar-rum-part-1", ".ar-rum-part-2"], {
+        opacity: 0,
+        y: 14,
+        scale: 0.97,
+      });
 
-      // 1. Dunia pertama ditampilkan
-      tl.to(
-        {},
-        {
-          duration: 1.5,
+      // Urutan animasi dimulai setelah loading complete
+      const tl = gsap.timeline({
+        onComplete: () => {
+          if (onComplete) onComplete();
         },
-      );
+      });
 
-      // 2. Kamera menjauh
+      // 1. Kamera menjauh
       tl.to(worldRef.current, {
         scale: 0.72,
         duration: 3,
         ease: "power2.inOut",
       });
 
-      // 3. Parallax gunung dan rumah
+      // 2. Parallax gunung dan rumah
       tl.to(
         mountainRef.current,
         {
@@ -71,7 +77,7 @@ function OpeningScene() {
           duration: 3,
           ease: "power2.inOut",
         },
-        "<",
+        "<"
       );
 
       tl.to(
@@ -81,10 +87,10 @@ function OpeningScene() {
           duration: 3,
           ease: "power2.inOut",
         },
-        "<",
+        "<"
       );
 
-      // 4. Frame dimensi kedua muncul
+      // 3. Frame dimensi kedua muncul
       tl.to(
         frameRef.current,
         {
@@ -93,10 +99,10 @@ function OpeningScene() {
           duration: 3,
           ease: "power2.inOut",
         },
-        "<",
+        "<"
       );
 
-      // 5. Bunga & wayang muncul ("-=1" setelah animasi gerbang)
+      // 4. Bunga & wayang muncul
       tl.to(
         ".decor-item",
         {
@@ -107,10 +113,10 @@ function OpeningScene() {
           stagger: 0.06,
           ease: "power3.out",
         },
-        "-=1",
+        "-=1"
       );
 
-      // 6. Teks tengah muncul
+      // 5. Judul "The Wedding of Imam & Ifa" muncul
       tl.to(
         ".wedding-title",
         {
@@ -120,10 +126,59 @@ function OpeningScene() {
           duration: 1.5,
           ease: "power3.out",
         },
-        "-=0.6",
+        "-=0.6"
       );
 
-      // 7. Animasi tanaman tertiup angin
+      // 6. Judul menghilang setelah jeda baca
+      tl.to(".wedding-title", {
+        opacity: 0,
+        y: -12,
+        scale: 0.96,
+        duration: 1.0,
+        delay: 2.0,
+        ease: "power2.inOut",
+      });
+
+      // 7. Muncul ke-1: Paragraf 1 muncul
+      tl.to(
+        ".ar-rum-part-1",
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1.2,
+          ease: "power3.out",
+        },
+        "-=0.2"
+      );
+
+      // Paragraf 1 menghilang setelah jeda baca
+      tl.to(".ar-rum-part-1", {
+        opacity: 0,
+        y: -12,
+        scale: 0.96,
+        duration: 1.0,
+        delay: 2.6,
+        ease: "power2.inOut",
+      });
+
+      // 8. Muncul ke-2: Paragraf 2 + sumber ayat muncul menggantikan paragraf 1
+      tl.to(
+        ".ar-rum-part-2",
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1.2,
+          ease: "power3.out",
+        },
+        "-=0.2"
+      );
+
+      // 9. Jeda baca paragraf 2 sebelum otomatis masuk ke loading kedua
+      tl.to({}, { duration: 2.2 });
+
+      // 10. Animasi tanaman tertiup angin & wayang
       gsap.to(".sway-left", {
         rotation: 2.5,
         x: 2,
@@ -157,17 +212,17 @@ function OpeningScene() {
         yoyo: true,
         ease: "sine.inOut",
       });
-    });
+    }, sceneRef);
 
     return () => {
       ctx.revert();
       document.body.classList.remove("opening-no-scroll");
       document.documentElement.classList.remove("opening-no-scroll");
     };
-  }, []);
+  }, [isActive, onComplete]);
 
   return (
-    <>
+    <div ref={sceneRef} className="opening-scene-root">
       {/* DIMENSI PERTAMA */}
       <div className="world" ref={worldRef}>
         <img
@@ -344,15 +399,36 @@ function OpeningScene() {
       </div>
 
       {/* TEKS TENGAH UNDANGAN */}
-      <div className="wedding-title-wrap wedding-title">
-        <p className="wedding-subtitle">The Wedding of</p>
-        <h1 className="wedding-names">
-          <span>Imam</span>
-          <span className="wedding-amp">&amp;</span>
-          <span>Ifa</span>
-        </h1>
+      <div className="wedding-title-wrap">
+        <div className="wedding-title">
+          <p className="wedding-subtitle">The Wedding of</p>
+          <h1 className="wedding-names">
+            <span>Imam</span>
+            <span className="wedding-amp">&amp;</span>
+            <span>Ifa</span>
+          </h1>
+        </div>
+
+        {/* Muncul ke-1: Paragraf 1 */}
+        <div className="ar-rum-wrap ar-rum-part-1">
+          <p className="ar-rum-text">
+            Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan
+            pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung
+            dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa
+            kasih dan sayang.
+          </p>
+        </div>
+
+        {/* Muncul ke-2: Paragraf 2 + Sumber */}
+        <div className="ar-rum-wrap ar-rum-part-2">
+          <p className="ar-rum-text">
+            Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda
+            (kebesaran Allah) bagi kaum yang berpikir.
+          </p>
+          <p className="ar-rum-source">QS. AR-RUM (30) : 21</p>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 

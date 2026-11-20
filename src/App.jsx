@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import InvitationCover from "./components/InvitationCover";
 import LoadingScreen from "./components/LoadingScreen";
 import OpeningScene from "./components/OpeningScene";
+import BackgroundTemplate from "./components/BackgroundTemplate";
 import CoupleSection from "./components/sections/CoupleSection";
 import EventDetail from "./components/sections/EventDetail";
 import GiftSection from "./components/sections/GiftSection";
@@ -10,6 +11,16 @@ import "./App.css";
 function App() {
   const [stage, setStage] = useState("cover");
   // Tahapan: "cover" -> "loading" -> "opening" -> "loading-second" -> "main"
+
+  const isOpeningMounted = stage === "loading" || stage === "opening";
+
+  useEffect(() => {
+    if (stage === "main") {
+      window.scrollTo(0, 0);
+      const openingEl = document.querySelector(".opening");
+      if (openingEl) openingEl.scrollTop = 0;
+    }
+  }, [stage]);
 
   return (
     <main className="opening">
@@ -23,17 +34,19 @@ function App() {
         <LoadingScreen onComplete={() => setStage("opening")} />
       )}
 
-      {/* 3. Scene Opening (Gunung & Rumah) */}
-      {stage === "opening" && (
-        <div className="opening-stage-wrap">
-          <OpeningScene />
-          <button
-            type="button"
-            className="opening-next-btn"
-            onClick={() => setStage("loading-second")}
-          >
-            Buka Undangan
-          </button>
+      {/* 3. Scene Opening */}
+      {isOpeningMounted && (
+        <div
+          className="opening-stage-wrap"
+          style={{
+            visibility: stage === "opening" ? "visible" : "hidden",
+            pointerEvents: stage === "opening" ? "auto" : "none",
+          }}
+        >
+          <OpeningScene
+            isActive={stage === "opening"}
+            onComplete={() => setStage("loading-second")}
+          />
         </div>
       )}
 
@@ -42,11 +55,16 @@ function App() {
         <LoadingScreen onComplete={() => setStage("main")} />
       )}
 
-      {/* 5. Alur Section Langsung (Tiap section atur background-nya sendiri) */}
+      {/* 5. Alur Section Utama */}
       {stage === "main" && (
         <div className="sections-flow">
-          <CoupleSection />
-          <EventDetail />
+          {/* Latar belakang menyatu untuk CoupleSection & EventDetail */}
+          <BackgroundTemplate>
+            <CoupleSection />
+            <EventDetail />
+          </BackgroundTemplate>
+
+          {/* Section dengan background merah mandiri */}
           <GiftSection />
         </div>
       )}
