@@ -1,125 +1,169 @@
+/* ================= EVENT SECTION MANDIRI (1 WARNA POLOS) ================= */
+
 .event-section {
   position: relative;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px 0;
+  min-height: 760px; /* [EDIT TINGGI SECTION] */
+  background-color: #f3e6cf; /* [EDIT WARNA BG POLOS] */
+  display: block;
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
+  isolation: isolate;
+  overflow: hidden;
 }
 
-.event-section-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #362312;
-  margin-bottom: 25px;
-  text-align: center;
-}
+/* ================= FRAME GERBANG (16.png) ================= */
+/* Atur besar/kecil & posisi:
+   - top / left: posisi Y & X
+   - width / height: besar kecil frame */
 
-.event-cards-container {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  width: 100%;
-  align-items: center;
-}
-
-/* Pembungkus Kartu Bentuk Lonjong */
-.event-card-wrap {
-  position: relative;
-  width: 340px; /* Lebar yang pas proporsional dengan layar HP */
-  min-height: 440px;
-  background-color: #580c0c; /* Warna dasar merah tua senada */
-  border: 4px solid #fff; /* Garis tepi putih ala bingkai */
-  border-radius: 180px / 220px; /* Membuat bentuk lengkung lonjong kapsul */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  box-sizing: border-box;
-}
-
-/* Isi Teks di Dalam Kartu */
-.event-card-content {
+.event-frame {
   position: absolute;
-  inset: 0;
+  top: -65px; /* [EDIT POSISI Y FRAME] */
+  left: 50%; /* [EDIT POSISI X FRAME] */
+  transform: translateX(-50%);
+  width: 120%; /* [EDIT LEBAR FRAME] */
+  height: 105%; /* [EDIT TINGGI FRAME] */
+  z-index: 3;
+  pointer-events: none;
+}
+
+.event-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+}
+
+/* ================= RUMAH TRADISIONAL (15.png) ================= */
+/* Atur besar/kecil & posisi:
+   - bottom: geser naik/turun dari bawah
+   - width: lebar rumah */
+
+.event-house {
+  position: absolute;
+  left: 50%;
+  bottom: 100px; /* [EDIT POSISI Y RUMAH] */
+  transform: translateX(-50%);
+  width: 115%; /* [EDIT UKURAN LEBAR RUMAH] */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.event-house img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ================= TEKS AKAD NIKAH ================= */
+/* Selalu di atas frame & rumah agar terbaca jelas */
+
+.event-text-content {
+  position: relative;
+  z-index: 2;
+  top: 80px;
+  width: 78%; /* [EDIT LEBAR AREA TEKS] */
+  max-width: 280px;
+  margin: 0 auto;
+  padding: 135px 12px 24px; /* [EDIT JARAK ATAS TEKS] */
+  border-radius: 18px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
-  padding: 50px 30px;
-  color: #fdfaf6;
-  font-family: 'Cormorant Garamond', serif;
+  color: #362312;
+  animation: eventTextAppear 1.2s ease-out both;
 }
 
 .event-title {
-  font-family: 'Great Vibes', cursive;
-  font-size: 36px;
+  font-family: "Great Vibes", cursive;
+  font-size: 38px; /* [EDIT UKURAN JUDUL] */
   font-weight: 400;
-  color: #fff6e0;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: #4b3520;
+  margin-bottom: 14px; /* [EDIT JARAK JUDUL KE INFO] */
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.85);
 }
 
 .event-info-box {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin-bottom: 20px;
+  align-items: center;
+  gap: 6px; /* [EDIT JARAK ANTAR BARIS] */
+  font-family: "Cormorant Garamond", serif;
+  color: #362312;
 }
 
 .event-date {
-  font-size: 15px;
+  font-size: 16px; /* [EDIT UKURAN TANGGAL] */
   font-weight: 600;
-  color: #fff1cc;
-  letter-spacing: 0.5px;
 }
 
 .event-time {
-  font-size: 14px;
-  opacity: 0.95;
+  font-size: 15px; /* [EDIT UKURAN WAKTU] */
 }
 
 .event-divider {
-  width: 40px;
+  width: 55px;
   height: 1px;
-  background-color: rgba(255, 255, 255, 0.4);
-  margin: 8px auto;
+  background: #9c7541;
+  margin: 6px 0;
 }
 
 .event-location-name {
-  font-size: 14px;
+  font-size: 15px; /* [EDIT UKURAN NAMA LOKASI] */
   font-weight: 600;
-  color: #fff6e0;
 }
 
 .event-address {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: 0.9;
-  max-width: 220px;
+  font-size: 13.5px; /* [EDIT UKURAN ALAMAT] */
+  line-height: 1.45;
+  max-width: 245px;
 }
 
-/* Tombol Google Maps */
+/* ================= TOMBOL MAPS ================= */
+
 .map-btn {
-  background: #dfbc77;
-  border: none;
-  border-radius: 20px;
+  margin-top: 16px; /* [EDIT JARAK TOMBOL] */
+  background: #9b713b;
+  border: 1px solid #e8d4a9;
+  border-radius: 25px;
   padding: 8px 20px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 13px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
   font-weight: 600;
-  color: #362312;
+  color: #fff8e8;
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(65, 40, 15, 0.25);
+  transition: 0.3s ease;
 }
 
 .map-btn:hover {
-  background: #f0ce8a;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  background: #b18a50;
+}
+
+@keyframes eventTextAppear {
+  from {
+    opacity: 0;
+    translate: 0 15px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .event-text-content {
+    width: 82%;
+    padding-top: 120px;
+  }
+
+  .event-title {
+    font-size: 33px;
+  }
 }

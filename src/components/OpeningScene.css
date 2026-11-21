@@ -151,12 +151,12 @@
 .bot-left-wayang-couple {
   bottom: clamp(10px, 3.8vw, 22px);
   left: clamp(32px, 10.8vw, 52px);
-  width: clamp(120px, 39.7vw, 180px);
+  width: clamp(120px, 39.7vw, 160px);
 }
 .bot-right-wayang-couple {
   bottom: clamp(10px, 3.8vw, 22px);
   right: clamp(32px, 10.8vw, 52px);
-  width: clamp(120px, 39.7vw, 180px);
+  width: clamp(120px, 39.7vw, 160px);
 }
 
 /* 3. Bunga Putih */
@@ -199,12 +199,12 @@
 .bot-left-pink {
   bottom: clamp(8px, 2.6vw, 16px);
   left: clamp(-42px, -9vw, -24px);
-  width: clamp(116px, 38.5vw, 175px);
+  width: clamp(116px, 38.5vw, 155px);
 }
 .bot-right-pink {
   bottom: clamp(8px, 2.6vw, 16px);
   right: clamp(-42px, -9vw, -24px);
-  width: clamp(116px, 38.5vw, 175px);
+  width: clamp(116px, 38.5vw, 155px);
 }
 
 /* 7. Bunga Pink Besar */

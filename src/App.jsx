@@ -3,6 +3,7 @@ import InvitationCover from "./components/InvitationCover";
 import LoadingScreen from "./components/LoadingScreen";
 import OpeningScene from "./components/OpeningScene";
 import BackgroundTemplate from "./components/BackgroundTemplate";
+import FloralCluster from "./components/sections/FloralCluster";
 import CoupleSection from "./components/sections/CoupleSection";
 import EventDetail from "./components/sections/EventDetail";
 import GiftSection from "./components/sections/GiftSection";
@@ -34,7 +35,7 @@ function App() {
         <LoadingScreen onComplete={() => setStage("opening")} />
       )}
 
-      {/* 3. Scene Opening */}
+      {/* 3. Scene Opening (Otomatis ke loading-second setelah selesai) */}
       {isOpeningMounted && (
         <div
           className="opening-stage-wrap"
@@ -50,7 +51,7 @@ function App() {
         </div>
       )}
 
-      {/* 4. Layar Loading Kedua */}
+      {/* 4. Layar Loading Kedua (Durasi sama seperti loading pertama) */}
       {stage === "loading-second" && (
         <LoadingScreen onComplete={() => setStage("main")} />
       )}
@@ -58,13 +59,25 @@ function App() {
       {/* 5. Alur Section Utama */}
       {stage === "main" && (
         <div className="sections-flow">
-          {/* Latar belakang menyatu untuk CoupleSection & EventDetail */}
+          {/* Section Couple dengan BackgroundTemplate */}
           <BackgroundTemplate>
             <CoupleSection />
-            <EventDetail />
           </BackgroundTemplate>
 
-          {/* Section dengan background merah mandiri */}
+          {/* Bunga Perbatasan Atas di Antara CoupleSection & EventDetail */}
+          <div className="section-bridge-wrap bridge-couple-event">
+            <FloralCluster variant="top" />
+          </div>
+
+          {/* Section EventDetail Mandiri */}
+          <EventDetail />
+
+          {/* Bunga Perbatasan Bawah di Antara EventDetail & GiftSection */}
+          <div className="section-bridge-wrap bridge-event-gift">
+            <FloralCluster variant="bottom" />
+          </div>
+
+          {/* Section Gift */}
           <GiftSection />
         </div>
       )}

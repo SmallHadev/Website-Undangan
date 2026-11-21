@@ -1,0 +1,159 @@
+.floral-cluster {
+  position: relative;
+  width: 100%;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.floral-variant-bottom {
+  min-height: 170px; /* [EDIT TINGGI AREA BUNGA BAWAH] */
+}
+
+.floral-variant-top {
+  min-height: 90px; /* [EDIT TINGGI AREA BUNGA ATAS] */
+}
+
+.floral-variant-full {
+  position: absolute;
+  inset: 0;
+  min-height: 100%;
+}
+
+.fc-item {
+  position: absolute;
+  pointer-events: none;
+}
+
+.fc-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  will-change: transform;
+}
+
+.fc-right,
+.fc-top-right,
+.fc-yellow-right {
+  transform: scaleX(-1);
+}
+
+.fc-origin-bottom {
+  transform-origin: bottom center;
+}
+
+.fc-origin-top-left {
+  transform-origin: top left;
+}
+
+/* --- BUNGA ATAS (8.png) --- */
+.fc-top-left {
+  top: -18px; /* [EDIT POSISI Y ATAS KIRI] */
+  left: -16px; /* [EDIT POSISI X ATAS KIRI] */
+  width: 115px; /* [EDIT UKURAN ATAS KIRI] */
+  z-index: 8;
+}
+
+.fc-top-right {
+  top: -18px; /* [EDIT POSISI Y ATAS KANAN] */
+  right: -16px; /* [EDIT POSISI X ATAS KANAN] */
+  width: 115px; /* [EDIT UKURAN ATAS KANAN] */
+  z-index: 8;
+}
+
+/* --- SISI KIRI (1.png, 2.png, 3.png, 4.png) --- */
+.fc-l4 {
+  bottom: -100px; /* [EDIT POSISI Y RUMPUT 4 KIRI] */
+  left: -4px; /* [EDIT POSISI X RUMPUT 4 KIRI] */
+  width: 105px; /* [EDIT UKURAN RUMPUT 4 KIRI] */
+  z-index: 4;
+  transform: rotate(50deg);
+}
+
+.fc-l1 {
+  bottom: -6px; /* [EDIT POSISI Y BUNGA 1 KIRI] */
+  left: -10px; /* [EDIT POSISI X BUNGA 1 KIRI] */
+  width: 122px; /* [EDIT UKURAN BUNGA 1 KIRI] */
+  z-index: 5;
+}
+
+.fc-l2 {
+  bottom: 8px; /* [EDIT POSISI Y BUNGA 2 KIRI] */
+  left: -6px; /* [EDIT POSISI X BUNGA 2 KIRI] */
+  width: 128px; /* [EDIT UKURAN BUNGA 2 KIRI] */
+  z-index: 6;
+}
+
+.fc-l3 {
+  bottom: -2px; /* [EDIT POSISI Y BUNGA 3 KIRI] */
+  left: -16px; /* [EDIT POSISI X BUNGA 3 KIRI] */
+  width: 132px; /* [EDIT UKURAN BUNGA 3 KIRI] */
+  transform: rotate(30deg);
+  z-index: 7;
+}
+
+.fc-l5 {
+  bottom: 3px; /* Posisi vertikal */
+  left: -40px;   /* Posisi horizontal */
+  width: 150px; /* Ukuran gambar */
+  z-index: 6;
+}
+
+/* --- SISI KANAN (MIRROR: 1.png, 2.png, 3.png, 4.png) --- */
+.fc-r4 {
+  bottom: 26px; /* [EDIT POSISI Y RUMPUT 4 KANAN] */
+  right: -4px; /* [EDIT POSISI X RUMPUT 4 KANAN] */
+  width: 105px; /* [EDIT UKURAN RUMPUT 4 KANAN] */
+  z-index: 4;
+}
+
+.fc-r1 {
+  bottom: -6px; /* [EDIT POSISI Y BUNGA 1 KANAN] */
+  right: -30px; /* [EDIT POSISI X BUNGA 1 KANAN] */
+  width: 122px; /* [EDIT UKURAN BUNGA 1 KANAN] */
+  z-index: 5;
+}
+
+.fc-r2 {
+  bottom: 8px; /* [EDIT POSISI Y BUNGA 2 KANAN] */
+  right: -6px; /* [EDIT POSISI X BUNGA 2 KANAN] */
+  width: 128px; /* [EDIT UKURAN BUNGA 2 KANAN] */
+  z-index: 6;
+  transform: rotate(30deg);
+}
+
+.fc-r3 {
+  bottom: -2px; /* [EDIT POSISI Y BUNGA 3 KANAN] */
+  right: -16px; /* [EDIT POSISI X BUNGA 3 KANAN] */
+  width: 132px; /* [EDIT UKURAN BUNGA 3 KANAN] */
+  z-index: 7;
+}
+.fc-r5 {
+  bottom: 3px;
+  right: -20px;
+  width: 120px;
+  z-index: 7;
+}
+
+/* --- 8kuning.png SEDIKIT KELUAR SUMBU X --- */
+.fc-yellow-left {
+  bottom: 18px; /* [EDIT POSISI Y 8KUNING KIRI] */
+  left: 90px; /* [EDIT POSISI X KELUAR KIRI - NEGATIF = KELUAR] */
+  width: 150px; /* [EDIT UKURAN 8KUNING KIRI] */
+  z-index: 8;
+}
+
+.fc-yellow-right {
+  bottom: 18px; /* [EDIT POSISI Y 8KUNING KANAN] */
+  right: 90px; /* [EDIT POSISI X KELUAR KANAN - NEGATIF = KELUAR] */
+  width: 150px; /* [EDIT UKURAN 8KUNING KANAN] */
+  z-index: 8;
+}
+
+/* --- TENGAH BAWAH (8.png) --- */
+.fc-center-8 {
+  bottom: -20px; /* [EDIT POSISI Y BUNGA 8 TENGAH] */
+  left: 50%;
+  width: 200px; /* [EDIT UKURAN BUNGA 8 TENGAH] */
+  margin-left: -92.5px; /* Setengah dari width di atas */
+  z-index: 9;
+}
