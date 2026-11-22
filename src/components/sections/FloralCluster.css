@@ -60,100 +60,108 @@
   z-index: 8;
 }
 
-/* --- SISI KIRI (1.png, 2.png, 3.png, 4.png) --- */
+/* --- SISI KIRI (1.png, 2.png, 3.png, 4.png, 5) --- */
 .fc-l4 {
-  bottom: -100px; /* [EDIT POSISI Y RUMPUT 4 KIRI] */
-  left: -4px; /* [EDIT POSISI X RUMPUT 4 KIRI] */
-  width: 105px; /* [EDIT UKURAN RUMPUT 4 KIRI] */
+  bottom: -60px; /* [EDIT POSISI Y RUMPUT 4 KIRI] */
+  left: -20px; /* [EDIT POSISI X RUMPUT 4 KIRI] */
+  width: 135px; /* [EDIT UKURAN RUMPUT 4 KIRI] */
   z-index: 4;
   transform: rotate(50deg);
 }
 
 .fc-l1 {
-  bottom: -6px; /* [EDIT POSISI Y BUNGA 1 KIRI] */
-  left: -10px; /* [EDIT POSISI X BUNGA 1 KIRI] */
+  bottom: -50px; /* [EDIT POSISI Y BUNGA 1 KIRI] */
+  left: -40px; /* [EDIT POSISI X BUNGA 1 KIRI] */
   width: 122px; /* [EDIT UKURAN BUNGA 1 KIRI] */
   z-index: 5;
+  transform: rotate(30deg) scaleX(-1);
 }
 
 .fc-l2 {
-  bottom: 8px; /* [EDIT POSISI Y BUNGA 2 KIRI] */
-  left: -6px; /* [EDIT POSISI X BUNGA 2 KIRI] */
+  bottom: -5px; /* [EDIT POSISI Y BUNGA 2 KIRI] */
+  left: -30px; /* [EDIT POSISI X BUNGA 2 KIRI] */
   width: 128px; /* [EDIT UKURAN BUNGA 2 KIRI] */
   z-index: 6;
 }
 
 .fc-l3 {
-  bottom: -2px; /* [EDIT POSISI Y BUNGA 3 KIRI] */
-  left: -16px; /* [EDIT POSISI X BUNGA 3 KIRI] */
-  width: 132px; /* [EDIT UKURAN BUNGA 3 KIRI] */
-  transform: rotate(30deg);
+  bottom: -20px; /* [EDIT POSISI Y BUNGA 3 KIRI] */
+  left: -30px; /* [EDIT POSISI X BUNGA 3 KIRI] */
+  width: 102px; /* [EDIT UKURAN BUNGA 3 KIRI] */
+  transform: rotate(18deg);
   z-index: 7;
 }
 
 .fc-l5 {
-  bottom: 3px; /* Posisi vertikal */
-  left: -40px;   /* Posisi horizontal */
-  width: 150px; /* Ukuran gambar */
-  z-index: 6;
+  bottom: 10px; /* [EDIT POSISI Y L5 KIRI] */
+  left: 20px; /* [EDIT POSISI X L5 KIRI] */
+  width: 120px; /* [EDIT UKURAN L5 KIRI] */
+  z-index: 7;
 }
 
-/* --- SISI KANAN (MIRROR: 1.png, 2.png, 3.png, 4.png) --- */
+/* --- SISI KANAN (DISAMAKAN DENGAN SISI KIRI) --- */
 .fc-r4 {
-  bottom: 26px; /* [EDIT POSISI Y RUMPUT 4 KANAN] */
-  right: -4px; /* [EDIT POSISI X RUMPUT 4 KANAN] */
-  width: 105px; /* [EDIT UKURAN RUMPUT 4 KANAN] */
+  bottom: -60px; /* Sama dengan .fc-l4 */
+  right: -20px; /* Sama dengan .fc-l4 */
+  width: 135px; /* Sama dengan .fc-l4 */
   z-index: 4;
+  transform: rotate(-50deg);
 }
 
 .fc-r1 {
-  bottom: -6px; /* [EDIT POSISI Y BUNGA 1 KANAN] */
-  right: -30px; /* [EDIT POSISI X BUNGA 1 KANAN] */
-  width: 122px; /* [EDIT UKURAN BUNGA 1 KANAN] */
+  bottom: -50px; /* Sama dengan .fc-l1 */
+  right: -40px; /* Sama dengan .fc-l1 */
+  width: 122px; /* Sama dengan .fc-l1 */
   z-index: 5;
+  transform: rotate(-30deg);
 }
 
 .fc-r2 {
-  bottom: 8px; /* [EDIT POSISI Y BUNGA 2 KANAN] */
-  right: -6px; /* [EDIT POSISI X BUNGA 2 KANAN] */
-  width: 128px; /* [EDIT UKURAN BUNGA 2 KANAN] */
+  bottom: -5px; /* Sama dengan .fc-l2 */
+  right: -30px; /* Sama dengan .fc-l2 */
+  width: 128px; /* Sama dengan .fc-l2 */
   z-index: 6;
-  transform: rotate(30deg);
+  transform: scaleX(-1) ;
 }
 
 .fc-r3 {
-  bottom: -2px; /* [EDIT POSISI Y BUNGA 3 KANAN] */
-  right: -16px; /* [EDIT POSISI X BUNGA 3 KANAN] */
-  width: 132px; /* [EDIT UKURAN BUNGA 3 KANAN] */
+  bottom: -20px; /* Sama dengan .fc-l3 */
+  right: -30px; /* Sama dengan .fc-l3 */
+  width: 102px; /* Sama dengan .fc-l3 */
   z-index: 7;
+  transform:  rotate(-18deg);
 }
+
 .fc-r5 {
-  bottom: 3px;
-  right: -20px;
-  width: 120px;
+  bottom: 10px; /* Sama dengan .fc-l5 */
+  right: 20px; /* Sama dengan .fc-l5 */
+  width: 120px; /* Sama dengan .fc-l5 */
   z-index: 7;
+  transform: scaleX(-1);
 }
 
 /* --- 8kuning.png SEDIKIT KELUAR SUMBU X --- */
 .fc-yellow-left {
   bottom: 18px; /* [EDIT POSISI Y 8KUNING KIRI] */
-  left: 90px; /* [EDIT POSISI X KELUAR KIRI - NEGATIF = KELUAR] */
-  width: 150px; /* [EDIT UKURAN 8KUNING KIRI] */
+  left: 70px; /* [EDIT POSISI X 8KUNING KIRI] */
+  width: 120px; /* [EDIT UKURAN 8KUNING KIRI] */
   z-index: 8;
+  transform: rotate(-50deg);
 }
 
 .fc-yellow-right {
-  bottom: 18px; /* [EDIT POSISI Y 8KUNING KANAN] */
-  right: 90px; /* [EDIT POSISI X KELUAR KANAN - NEGATIF = KELUAR] */
-  width: 150px; /* [EDIT UKURAN 8KUNING KANAN] */
+  bottom: 18px; /* Sama dengan .fc-yellow-left */
+  right: 70px; /* Sama dengan .fc-yellow-left */
+  width: 120px; /* Sama dengan .fc-yellow-left */
   z-index: 8;
+  transform: scaleX(-1) rotate(-50deg);
 }
 
 /* --- TENGAH BAWAH (8.png) --- */
 .fc-center-8 {
-  bottom: -20px; /* [EDIT POSISI Y BUNGA 8 TENGAH] */
+  bottom: -30px; /* [EDIT POSISI Y BUNGA 8 TENGAH] */
   left: 50%;
   width: 200px; /* [EDIT UKURAN BUNGA 8 TENGAH] */
-  margin-left: -92.5px; /* Setengah dari width di atas */
+  margin-left: -100px; /* Setengah dari width 200px */
   z-index: 9;
 }

@@ -3,7 +3,7 @@
 .event-section {
   position: relative;
   width: 100%;
-  min-height: 760px; /* [EDIT TINGGI SECTION] */
+  height: 1180px; /* [EDIT TINGGI SECTION] Disesuaikan untuk menampung frame atas + frame bawah */
   background-color: #f3e6cf; /* [EDIT WARNA BG POLOS] */
   display: block;
   padding: 0;
@@ -13,10 +13,10 @@
   overflow: hidden;
 }
 
-/* ================= FRAME GERBANG (16.png) ================= */
+/* ================= FRAME GERBANG ATAS (16.png) ================= */
 /* Atur besar/kecil & posisi:
-   - top / left: posisi Y & X
-   - width / height: besar kecil frame */
+- top / left: posisi Y & X
+- width / height: besar kecil frame */
 
 .event-frame {
   position: absolute;
@@ -24,7 +24,7 @@
   left: 50%; /* [EDIT POSISI X FRAME] */
   transform: translateX(-50%);
   width: 120%; /* [EDIT LEBAR FRAME] */
-  height: 105%; /* [EDIT TINGGI FRAME] */
+  height: 760px; /* Tinggi proporsional frame atas */
   z-index: 3;
   pointer-events: none;
 }
@@ -36,17 +36,50 @@
   display: block;
 }
 
+/* ================= FRAME GERBANG BAWAH (16.png ROTATE 180 - KAKI MENUMPUK) ================= */
+/* Atur top agar kaki frame bawah menumpuk (bukan sekadar berdempetan) dengan kaki frame atas */
+
+.event-frame-bottom {
+  position: absolute;
+  top: 635px; /* [EDIT POSISI Y FRAME BAWAH] Geser naik/turun agar kaki menumpuk kaki frame atas */
+  left: 50%; /* [EDIT POSISI X FRAME BAWAH] */
+  transform: translateX(-50%) rotate(180deg);
+  width: 120%; /* [EDIT LEBAR FRAME BAWAH] Menyesuaikan frame atas */
+  height: 760px; /* [EDIT TINGGI FRAME BAWAH] Menyesuaikan frame atas */
+  z-index: 3;
+  pointer-events: none;
+}
+
+.event-frame-bottom img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+}
+
+/* ================= FLORAL DI UJUNG KAKI FRAME YANG BERTUMPU ================= */
+/* Atur top untuk menaikkan/menurunkan bunga tepat di pertemuan kaki frame atas & bawah */
+
+.event-overlap-floral {
+  position: absolute;
+  top: 560px; /* [EDIT POSISI Y FLORAL PERTEMUAN KAKI FRAME] */
+  left: 0;
+  width: 100%;
+  z-index: 7;
+  pointer-events: none;
+}
+
 /* ================= RUMAH TRADISIONAL (15.png) ================= */
 /* Atur besar/kecil & posisi:
-   - bottom: geser naik/turun dari bawah
-   - width: lebar rumah */
+- top / bottom: geser naik/turun
+- width: lebar rumah */
 
 .event-house {
   position: absolute;
   left: 50%;
-  bottom: 100px; /* [EDIT POSISI Y RUMAH] */
+  top: 400px; /* [EDIT POSISI Y RUMAH] */
   transform: translateX(-50%);
-  width: 115%; /* [EDIT UKURAN LEBAR RUMAH] */
+  width: 125%; /* [EDIT UKURAN LEBAR RUMAH] */
   z-index: 1;
   pointer-events: none;
 }
@@ -57,13 +90,39 @@
   display: block;
 }
 
-/* ================= TEKS AKAD NIKAH ================= */
-/* Selalu di atas frame & rumah agar terbaca jelas */
+/* ================= WAYANG KIRI (11.png) & KANAN (10.png) ================= */
+/* Atur ukuran (width) & posisi X/Y (left/right & top/bottom) */
+
+.event-wayang {
+  position: absolute;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.event-wayang img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.event-wayang-left {
+  left: 18%; /* [EDIT POSISI X WAYANG KIRI 11.png] */
+  bottom: 50px; /* [EDIT POSISI Y WAYANG KIRI 11.png] */
+  width: 120px; /* [EDIT UKURAN WAYANG KIRI 11.png] */
+}
+
+.event-wayang-right {
+  right: 20%; /* [EDIT POSISI X WAYANG KANAN 10.png] */
+  bottom: -10px; /* [EDIT POSISI Y WAYANG KANAN 10.png] */
+  width: 135px; /* [EDIT UKURAN WAYANG KANAN 10.png] */
+}
+
+/* ================= TEKS AKAD NIKAH & RESEPSI ================= */
 
 .event-text-content {
   position: relative;
   z-index: 2;
-  top: 80px;
+  top: 60px;
   width: 78%; /* [EDIT LEBAR AREA TEKS] */
   max-width: 280px;
   margin: 0 auto;
@@ -76,6 +135,11 @@
   text-align: center;
   color: #362312;
   animation: eventTextAppear 1.2s ease-out both;
+}
+
+.event-text-bottom {
+  top: 380px; /* [EDIT POSISI Y TEKS BAWAH] Geser naik/turun sesuai posisi frame bawah */
+  padding-top: 24px;
 }
 
 .event-title {
@@ -123,28 +187,6 @@
   max-width: 245px;
 }
 
-/* ================= TOMBOL MAPS ================= */
-
-.map-btn {
-  margin-top: 16px; /* [EDIT JARAK TOMBOL] */
-  background: #9b713b;
-  border: 1px solid #e8d4a9;
-  border-radius: 25px;
-  padding: 8px 20px;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: #fff8e8;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(65, 40, 15, 0.25);
-  transition: 0.3s ease;
-}
-
-.map-btn:hover {
-  transform: translateY(-3px);
-  background: #b18a50;
-}
-
 @keyframes eventTextAppear {
   from {
     opacity: 0;
@@ -163,7 +205,16 @@
     padding-top: 120px;
   }
 
+  .event-text-bottom {
+    padding-top: 24px;
+  }
+
   .event-title {
     font-size: 33px;
+  }
+
+  .event-wayang-left,
+  .event-wayang-right {
+    width: 110px;
   }
 }
