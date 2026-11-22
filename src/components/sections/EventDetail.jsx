@@ -1,9 +1,40 @@
+import { useEffect, useRef, useState } from "react";
 import FloralCluster from "./FloralCluster";
 import "./EventDetail.css";
 
 function EventDetail() {
+  const sectionRef = useRef(null);
+  const [hasEntered, setHasEntered] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el || hasEntered) return;
+
+    const scrollContainer = el.closest(".opening");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setHasEntered(true);
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        root: scrollContainer || null,
+        threshold: 0.12, // Muncul saat ~12% section masuk layar
+      }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [hasEntered]);
+
   return (
-    <section className="event-section">
+    <section
+      ref={sectionRef}
+      className={`event-section ${hasEntered ? "is-revealed" : ""}`}
+    >
       {/* FRAME GERBANG ATAS (16.png) */}
       <div className="event-frame">
         <img src="/assets/16.png" alt="Ornamen bingkai gerbang" />

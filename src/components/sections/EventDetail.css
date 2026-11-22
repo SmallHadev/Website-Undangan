@@ -107,14 +107,14 @@
 
 .event-wayang-left {
   left: 18%; /* [EDIT POSISI X WAYANG KIRI 11.png] */
-  bottom: 50px; /* [EDIT POSISI Y WAYANG KIRI 11.png] */
+  bottom: 30px; /* [EDIT POSISI Y WAYANG KIRI 11.png] */
   width: 120px; /* [EDIT UKURAN WAYANG KIRI 11.png] */
 }
 
 .event-wayang-right {
   right: 20%; /* [EDIT POSISI X WAYANG KANAN 10.png] */
-  bottom: -10px; /* [EDIT POSISI Y WAYANG KANAN 10.png] */
-  width: 135px; /* [EDIT UKURAN WAYANG KANAN 10.png] */
+  bottom: 10px; /* [EDIT POSISI Y WAYANG KANAN 10.png] */
+  width: 120px; /* [EDIT UKURAN WAYANG KANAN 10.png] */
 }
 
 /* ================= TEKS AKAD NIKAH & RESEPSI ================= */
@@ -217,4 +217,40 @@
   .event-wayang-right {
     width: 110px;
   }
+}
+/* ================= ANIMASI SCROLL PERTAMA KALI (EVENT DETAIL) ================= */
+/* Elemen mulai sedikit turun & transparan, lalu muncul halus saat .event-section mendapat .is-revealed */
+
+.event-section .event-text-content,
+.event-section .event-house,
+.event-section .event-wayang {
+  opacity: 0;
+  translate: 0 22px;
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    translate 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.event-section.is-revealed .event-text-content {
+  opacity: 1;
+  translate: 0 0;
+  transition-delay: 0.1s;
+}
+
+.event-section.is-revealed .event-house {
+  opacity: 1;
+  translate: 0 0;
+  transition-delay: 0.25s;
+}
+
+.event-section.is-revealed .event-wayang-left {
+  opacity: 1;
+  translate: 0 0;
+  transition-delay: 0.35s;
+}
+
+.event-section.is-revealed .event-wayang-right {
+  opacity: 1;
+  translate: 0 0;
+  transition-delay: 0.45s;
 }

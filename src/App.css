@@ -52,6 +52,7 @@ body {
 .section-bridge-wrap {
   position: relative;
   width: 100%;
+  bottom: -65px;
   height: 0;
   z-index: 15;
   pointer-events: none;
@@ -61,7 +62,7 @@ body {
 /* [EDIT POSISI Y] Bunga perbatasan antara CoupleSection & EventDetail */
 .bridge-couple-event .floral-cluster {
   position: absolute;
-  top: -12px;
+  top: -90px;
   left: 0;
 }
 

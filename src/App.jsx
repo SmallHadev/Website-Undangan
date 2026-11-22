@@ -6,7 +6,7 @@ import BackgroundTemplate from "./components/BackgroundTemplate";
 import FloralCluster from "./components/sections/FloralCluster";
 import CoupleSection from "./components/sections/CoupleSection";
 import EventDetail from "./components/sections/EventDetail";
-import GiftSection from "./components/sections/GiftSection";
+import LocationRsvpSection from "./components/sections/LocationRsvpSection";
 import "./App.css";
 
 function App() {
@@ -78,7 +78,7 @@ function App() {
           </div>
 
           {/* Section Gift */}
-          <GiftSection />
+          <LocationRsvpSection />
         </div>
       )}
     </main>

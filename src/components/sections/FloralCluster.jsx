@@ -1,10 +1,37 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import "./FloralCluster.css";
 
 function FloralCluster({ variant = "bottom", className = "" }) {
   const clusterRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
+  // Animasi masuk sekali saat pertama kali masuk area scroll
+  useEffect(() => {
+    const el = clusterRef.current;
+    if (!el || isVisible) return;
+
+    const scrollContainer = el.closest(".opening");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        root: scrollContainer || null,
+        threshold: 0.1,
+      }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [isVisible]);
+
+  // Animasi goyangan & float berkelanjutan pada gambar bunga
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.to(".fc-sway-left", {
@@ -44,7 +71,9 @@ function FloralCluster({ variant = "bottom", className = "" }) {
   return (
     <div
       ref={clusterRef}
-      className={`floral-cluster floral-variant-${variant} ${className}`}
+      className={`floral-cluster floral-variant-${variant} ${
+        isVisible ? "is-floral-visible" : ""
+      } ${className}`}
       aria-hidden="true"
     >
       {showTop && (
@@ -69,7 +98,7 @@ function FloralCluster({ variant = "bottom", className = "" }) {
 
       {showBottom && (
         <>
-          {/* SISI KIRI: 1.png, 2.png, 3.png, 4.png */}
+          {/* SISI KIRI: 1.png, 2.png, 3.png, 4.png, 2hijau.png */}
           <div className="fc-item fc-left fc-l4">
             <img
               src="/assets/4.png"
@@ -100,10 +129,10 @@ function FloralCluster({ variant = "bottom", className = "" }) {
           </div>
           <div className="fc-item fc-l5">
             <img
-            src="/assets/2hijau.png"
-            className="fc-sway-left fc-origin-bottom"
-            alt=""
-            /> 
+              src="/assets/2hijau.png"
+              className="fc-sway-left fc-origin-bottom"
+              alt=""
+            />
           </div>
 
           {/* SISI KANAN (MIRROR): 1.png, 2.png, 3.png, 4.png */}
@@ -153,12 +182,13 @@ function FloralCluster({ variant = "bottom", className = "" }) {
           </div>
           <div className="fc-item fc-r5">
             <img
-            src="/assets/2hijau.png"
-            className="fc-sway-right fc-origin-bottom"
-            alt=""
-            /> 
+              src="/assets/2hijau.png"
+              className="fc-sway-right fc-origin-bottom"
+              alt=""
+            />
           </div>
-          {/* TENGAH BAWAH: 8.png */}
+
+          {/* TENGAH BAWAH: 2hijau.png */}
           <div className="fc-item fc-center-8">
             <img
               src="/assets/2hijau.png"

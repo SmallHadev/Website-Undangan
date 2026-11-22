@@ -1,0 +1,253 @@
+.loc-rsvp-section {
+  position: relative;
+  width: 100%;
+  background-color: #590d0d; /* Merah marun gelap */
+  color: #f3e6cf;
+  padding: 68px 22px 64px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ================= BAGIAN LOKASI ================= */
+
+.loc-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.loc-pin-icon {
+  margin-bottom: 10px;
+}
+
+.loc-address-text {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  color: #f5ead6;
+  margin-bottom: 16px;
+}
+
+.loc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 14px 20px;
+  background-color: #ecdab9;
+  color: #2c1b0e;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.loc-btn:hover {
+  background-color: #f5e6ca;
+  transform: translateY(-2px);
+}
+
+/* ================= BAGIAN FORM UCAPAN & RSVP ================= */
+
+.rsvp-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rsvp-title {
+  font-family: "Great Vibes", cursive;
+  font-size: 46px;
+  font-weight: 400;
+  color: #f5ead6;
+  line-height: 1.05;
+  margin-bottom: 4px;
+}
+
+.rsvp-subtitle {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12.5px;
+  letter-spacing: 1px;
+  color: #e6d5b8;
+  margin-bottom: 28px;
+}
+
+.rsvp-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.rsvp-label {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  color: #f5ead6;
+  margin-bottom: -2px;
+}
+
+.rsvp-input,
+.rsvp-textarea,
+.rsvp-select {
+  width: 100%;
+  background-color: #ecdab9;
+  color: #2c1b0e;
+  border: none;
+  border-radius: 9px;
+  padding: 12px 14px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.rsvp-input::placeholder,
+.rsvp-textarea::placeholder {
+  color: #8c7b65;
+}
+
+.rsvp-textarea {
+  resize: vertical;
+  min-height: 92px;
+}
+
+.rsvp-select {
+  cursor: pointer;
+}
+
+.rsvp-feedback {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  color: #ffe8b8;
+  text-align: center;
+  margin-top: 2px;
+}
+
+.rsvp-submit-btn {
+  align-self: center;
+  margin-top: 8px;
+  padding: 10px 44px;
+  background-color: #ecdab9;
+  color: #2c1b0e;
+  border: none;
+  border-radius: 9px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.rsvp-submit-btn:hover:not(:disabled) {
+  background-color: #f5e6ca;
+  transform: translateY(-2px);
+}
+
+.rsvp-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* ================= DAFTAR UCAPAN (WISHLIST) ================= */
+
+.wishlist-wrapper {
+  width: 100%;
+  margin-top: 34px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wishlist-heading {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  color: #f5ead6;
+  margin-bottom: 10px;
+}
+
+.wishlist-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.wishlist-empty {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  color: #dcc8a7;
+  text-align: center;
+  padding: 12px 0;
+}
+
+.wish-card {
+  background-color: #ecdab9;
+  color: #2c1b0e;
+  border-radius: 10px;
+  padding: 13px 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.wish-card-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.wish-author {
+  font-weight: 700;
+  color: #231409;
+}
+
+.wish-sep {
+  color: #7d6b56;
+}
+
+.wish-status {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.wish-status.is-hadir {
+  color: #3d6328;
+}
+
+.wish-status.is-tidak {
+  color: #8a3428;
+}
+
+.wish-body {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14.5px;
+  line-height: 1.4;
+  color: #382515;
+  white-space: pre-line;
+}
+
+.load-more-btn {
+  align-self: center;
+  margin-top: 18px;
+  background: transparent;
+  border: none;
+  color: #f5ead6;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14.5px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.load-more-btn:hover:not(:disabled) {
+  color: #ffffff;
+}

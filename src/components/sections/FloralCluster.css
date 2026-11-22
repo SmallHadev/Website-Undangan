@@ -165,3 +165,19 @@
   margin-left: -100px; /* Setengah dari width 200px */
   z-index: 9;
 }
+/* ================= ANIMASI MUNCUL SAAT PERTAMA KALI TERLIHAT ================= */
+/* Memakai opacity + margin-top agar tidak menimpa transform rotasi/mirror pada .fc-item */
+
+.floral-cluster .fc-item {
+  opacity: 0;
+  margin-top: 16px;
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    margin-top 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.floral-cluster.is-floral-visible .fc-item {
+  opacity: 1;
+  margin-top: 0;
+  transition-delay: 0.12s;
+}
