@@ -253,7 +253,7 @@ function OpeningScene({ isActive = true, onComplete }) {
           alt="Bunga putih atas kiri"
         />
       </div>
-      <div className="decor-wrap top-right mirror z-8">
+      <div className="decor-wrap top-right z-8">
         <img
           src="/assets/7.png"
           className="decor-item sway-right origin-top-left"

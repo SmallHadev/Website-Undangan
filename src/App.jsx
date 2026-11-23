@@ -7,6 +7,7 @@ import FloralCluster from "./components/sections/FloralCluster";
 import CoupleSection from "./components/sections/CoupleSection";
 import EventDetail from "./components/sections/EventDetail";
 import LocationRsvpSection from "./components/sections/LocationRsvpSection";
+import ThanksSection from "./components/sections/ThanksSection";
 import "./App.css";
 
 function App() {
@@ -79,6 +80,8 @@ function App() {
 
           {/* Section Gift */}
           <LocationRsvpSection />
+
+            <ThanksSection />
         </div>
       )}
     </main>

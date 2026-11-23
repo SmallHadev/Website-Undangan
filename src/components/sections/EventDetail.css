@@ -107,13 +107,13 @@
 
 .event-wayang-left {
   left: 18%; /* [EDIT POSISI X WAYANG KIRI 11.png] */
-  bottom: 30px; /* [EDIT POSISI Y WAYANG KIRI 11.png] */
+  bottom: 20px; /* [EDIT POSISI Y WAYANG KIRI 11.png] */
   width: 120px; /* [EDIT UKURAN WAYANG KIRI 11.png] */
 }
 
 .event-wayang-right {
   right: 20%; /* [EDIT POSISI X WAYANG KANAN 10.png] */
-  bottom: 10px; /* [EDIT POSISI Y WAYANG KANAN 10.png] */
+  bottom: 1px; /* [EDIT POSISI Y WAYANG KANAN 10.png] */
   width: 120px; /* [EDIT UKURAN WAYANG KANAN 10.png] */
 }
 
@@ -253,4 +253,132 @@
   opacity: 1;
   translate: 0 0;
   transition-delay: 0.45s;
+}
+/* ================= EFEK DATANG FRAME ATAS & BAWAH ================= */
+.event-trigger-akad .event-frame {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-28px) scale(0.98);
+  transition:
+    opacity 0.95s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.event-trigger-akad.is-akad-visible .event-frame {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+  transition-delay: 0.05s;
+}
+
+.event-trigger-resepsi .event-frame-bottom {
+  opacity: 0;
+  transform: translateX(-50%) rotate(180deg) translateY(-28px) scale(0.98);
+  transition:
+    opacity 0.95s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.event-trigger-resepsi.is-resepsi-visible .event-frame-bottom {
+  opacity: 1;
+  transform: translateX(-50%) rotate(180deg) translateY(0) scale(1);
+  transition-delay: 0.05s;
+}
+
+/* ================= EFEK DATANG TULISAN AKAD & RESEPSI (LEBIH JELAS) ================= */
+/* Matikan animasi lama eventTextAppear agar dikontrol penuh saat scroll */
+.event-section .event-text-content {
+  animation: none;
+  opacity: 0;
+  translate: 0 36px;
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    translate 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Judul & info di dalam tulisan muncul sedikit bertahap */
+.event-section .event-title,
+.event-section .event-info-box {
+  opacity: 0;
+  translate: 0 18px;
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    translate 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.event-trigger-akad.is-akad-visible .event-text-content,
+.event-trigger-resepsi.is-resepsi-visible .event-text-content {
+  opacity: 1;
+  translate: 0 0;
+  transition-delay: 0.22s;
+}
+
+.event-trigger-akad.is-akad-visible .event-title,
+.event-trigger-resepsi.is-resepsi-visible .event-title {
+  opacity: 1;
+  translate: 0 0;
+  transition-delay: 0.32s;
+}
+
+.event-trigger-akad.is-akad-visible .event-info-box,
+.event-trigger-resepsi.is-resepsi-visible .event-info-box {
+  opacity: 1;
+  translate: 0 0;
+  transition-delay: 0.46s;
+}
+
+/* ================= EFEK DATANG RUMAH & WAYANG ================= */
+.event-section .event-house,
+.event-section .event-wayang {
+  opacity: 0;
+  translate: 0 32px;
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    translate 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.event-trigger-akad.is-akad-visible .event-house {
+  opacity: 1;
+  translate: 0 0;
+  transition-delay: 0.38s;
+}
+
+.event-trigger-resepsi.is-resepsi-visible .event-wayang-left {
+  opacity: 1;
+  translate: 0 0;
+  transition-delay: 0.35s;
+}
+
+.event-trigger-resepsi.is-resepsi-visible .event-wayang-right {
+  opacity: 1;
+  translate: 0 0;
+  transition-delay: 0.48s;
+}
+/* ================= GERAKAN NAIK-TURUN WAYANG KIRI & KANAN ================= */
+.event-wayang-left img {
+  animation: wayangFloatLeft 3.4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.event-wayang-right img {
+  animation: wayangFloatRight 3.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes wayangFloatLeft {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-9px); /* [EDIT TINGGI NAIK WAYANG KIRI] */
+  }
+}
+
+@keyframes wayangFloatRight {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-11px); /* [EDIT TINGGI NAIK WAYANG KANAN] */
+  }
 }

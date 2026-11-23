@@ -1,0 +1,184 @@
+.thanks-section {
+  position: relative;
+  width: 100%;
+  background-color: rgba(236, 218, 185, 0.78); /* [EDIT TRANSPARANSI BG CERAH] Turunkan angka 0.78 (misal 0.65 atau 0.55) agar makin transparan */
+  backdrop-filter: blur(1px); /* [EDIT BLUR BG] Hapus baris ini jika ingin latar belakang di baliknya lebih tajam */
+  color: #2c1b0e;
+  padding: 56px 22px 68px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* ================= ANIMASI KEDATANGAN SAAT SCROLL ================= */
+.thanks-section .thanks-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.thanks-section.is-thanks-visible .thanks-header {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.thanks-section.is-thanks-visible .thanks-photo-stage {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.25s;
+}
+
+.thanks-section.is-thanks-visible .thanks-footer {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+
+/* ================= HEADER & UCAPAN ================= */
+.thanks-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 34px;
+  z-index: 2;
+}
+
+.thanks-couple-names {
+  font-family: "Great Vibes", cursive;
+  font-size: 44px; /* [EDIT UKURAN NAMA PASANGAN] */
+  font-weight: 400;
+  color: #2c1b0e;
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+.thanks-message {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px; /* [EDIT UKURAN TEKS UCAPAN] */
+  line-height: 1.5;
+  color: #382414;
+  max-width: 270px;
+}
+
+/* ================= STAGE FOTO 25.png + BUNGA ================= */
+.thanks-photo-stage {
+  position: relative;
+  width: 100%;
+  max-width: 270px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px 0 34px;
+}
+
+.thanks-photo-card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  aspect-ratio: 3 / 4.25;
+  border-radius: 50px 50px 3px 3px; /* Atas 50px, bawah 3px */
+  overflow: hidden;
+  box-shadow: 0 12px 24px rgba(44, 27, 14, 0.22);
+  background-color: #d8c29d;
+}
+
+.thanks-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  animation: thanksPhotoBreath 5.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Gerak napas super halus pada foto */
+@keyframes thanksPhotoBreath {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.022); /* [EDIT ZOOM HALUS FOTO] */
+  }
+}
+
+/* ================= BUNGA DI BELAKANG / SEKITAR FOTO ================= */
+.thanks-bg-floral {
+  position: absolute;
+  height: auto;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.thanks-floral-top-left {
+  top: -22px;
+  left: -34px;
+  width: 112px;
+  z-index: 1;
+  animation: thanksSwayLeft 3.6s ease-in-out infinite;
+}
+
+.thanks-floral-top-right {
+  top: -18px;
+  right: -30px;
+  width: 105px;
+  z-index: 1;
+  transform: scaleX(-1);
+  animation: thanksSwayRight 3.9s ease-in-out infinite;
+}
+
+.thanks-floral-bottom-left {
+  bottom: 24px;
+  left: -32px;
+  width: 100px;
+  z-index: 1;
+  animation: thanksSwayLeft 3.4s ease-in-out infinite;
+}
+
+.thanks-floral-bottom-right {
+  bottom: -14px;
+  right: -28px;
+  width: 118px;
+  z-index: 3; /* Sedikit di depan ujung bawah foto seperti referensi */
+  animation: thanksSwayRight 3.2s ease-in-out infinite;
+}
+
+@keyframes thanksSwayLeft {
+  0%,
+  100% {
+    transform: rotate(0deg) translateY(0px);
+  }
+  50% {
+    transform: rotate(3deg) translateY(-5px);
+  }
+}
+
+@keyframes thanksSwayRight {
+  0%,
+  100% {
+    transform: scaleX(-1) rotate(0deg) translateY(0px);
+  }
+  50% {
+    transform: scaleX(-1) rotate(3deg) translateY(-5px);
+  }
+}
+
+/* ================= FOOTER THANK YOU ================= */
+.thanks-footer {
+  z-index: 2;
+}
+
+.thanks-signoff {
+  font-family: "Great Vibes", cursive;
+  font-size: 40px; /* [EDIT UKURAN THANK YOU] */
+  font-weight: 400;
+  color: #2c1b0e;
+  line-height: 1.1;
+}

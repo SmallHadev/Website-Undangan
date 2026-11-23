@@ -167,17 +167,16 @@
 }
 /* ================= ANIMASI MUNCUL SAAT PERTAMA KALI TERLIHAT ================= */
 /* Memakai opacity + margin-top agar tidak menimpa transform rotasi/mirror pada .fc-item */
-
 .floral-cluster .fc-item {
   opacity: 0;
-  margin-top: 16px;
+  margin-top: 28px;
   transition:
-    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
-    margin-top 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    margin-top 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .floral-cluster.is-floral-visible .fc-item {
   opacity: 1;
   margin-top: 0;
-  transition-delay: 0.12s;
+  transition-delay: 0.14s;
 }

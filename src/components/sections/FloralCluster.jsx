@@ -6,7 +6,7 @@ function FloralCluster({ variant = "bottom", className = "" }) {
   const clusterRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
-  // Animasi masuk sekali saat pertama kali masuk area scroll
+  // Tunggu scroll agak ke bawah sebelum memicu animasi masuk bunga
   useEffect(() => {
     const el = clusterRef.current;
     if (!el || isVisible) return;
@@ -23,7 +23,8 @@ function FloralCluster({ variant = "bottom", className = "" }) {
       },
       {
         root: scrollContainer || null,
-        threshold: 0.1,
+        rootMargin: "0px 0px -20% 0px",
+        threshold: 0.22,
       }
     );
 

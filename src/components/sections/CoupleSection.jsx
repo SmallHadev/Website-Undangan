@@ -68,7 +68,7 @@ function CoupleSection() {
             <h2 className="person-name">Achmad Imam Thohari</h2>
             <p className="child-order">Anak ke-4 dari</p>
             <p className="parent-info">
-              Putra Bapak Waris Santoso &amp; Ibu Mudjiati
+              Putra Bpk Waris Santoso &amp; Ibu Waris
             </p>
           </div>
 
@@ -78,7 +78,7 @@ function CoupleSection() {
             <h2 className="person-name">Jelita Ifadatus Sholikhah</h2>
             <p className="child-order">Anak ke-1 dari</p>
             <p className="parent-info">
-              Putri Bapak Hendro Soerjono (Alm.) &amp; Ibu Sulchah
+              Putri Bpk Hendro S (Alm.) &amp; Ibu Sulchah
             </p>
           </div>
 

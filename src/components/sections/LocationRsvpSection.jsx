@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { supabase } from "../../lib/supabaseClient";
 import "./LocationRsvpSection.css";
 
 const PAGE_SIZE = 3; // Jumlah ucapan yang tampil awal & setiap klik "Load More"
 
 function LocationRsvpSection() {
+  const sectionRef = useRef(null);
+  const [isRevealed, setIsRevealed] = useState(false);
+
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [attendance, setAttendance] = useState("");
@@ -19,6 +22,32 @@ function LocationRsvpSection() {
   // Ganti link ini dengan tautan Google Maps lokasi acara sebenarnya
   const googleMapsUrl =
     "https://www.google.com/maps/search/?api=1&query=Nginden+II+D+No+38+Surabaya";
+
+  // Animasi kedatangan saat di-scroll masuk ke area layar
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el || isRevealed) return;
+
+    const scrollContainer = el.closest(".opening");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsRevealed(true);
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        root: scrollContainer || null,
+        rootMargin: "0px 0px -15% 0px",
+        threshold: 0.18,
+      }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [isRevealed]);
 
   // Ambil data ucapan dari backend (dengan pagination untuk Load More)
   const fetchWishes = async (pageIndex = 0, reset = false) => {
@@ -91,9 +120,12 @@ function LocationRsvpSection() {
   };
 
   return (
-    <section className="loc-rsvp-section">
+    <section
+      ref={sectionRef}
+      className={`loc-rsvp-section ${isRevealed ? "is-loc-rsvp-visible" : ""}`}
+    >
       {/* ================= BAGIAN LOKASI ================= */}
-      <div className="loc-header">
+      <div className="loc-header rsvp-reveal-item">
         <div className="loc-pin-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="38" height="38" fill="#ecdab9">
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" />
@@ -114,10 +146,12 @@ function LocationRsvpSection() {
 
       {/* ================= BAGIAN UCAPAN & RSVP ================= */}
       <div className="rsvp-container">
-        <h2 className="rsvp-title">Ucapan</h2>
-        <p className="rsvp-subtitle">Kata Kata Hari ini</p>
+        <div className="rsvp-heading-group rsvp-reveal-item">
+          <h2 className="rsvp-title">Wishes</h2>
+          <p className="rsvp-subtitle">Leave a prayer for us</p>
+        </div>
 
-        <form className="rsvp-form" onSubmit={handleSubmit}>
+        <form className="rsvp-form rsvp-reveal-item" onSubmit={handleSubmit}>
           <label className="rsvp-label" htmlFor="wish-name">
             Send a Wish:
           </label>
@@ -161,7 +195,7 @@ function LocationRsvpSection() {
         </form>
 
         {/* ================= DAFTAR UCAPAN (WISHLIST) ================= */}
-        <div className="wishlist-wrapper">
+        <div className="wishlist-wrapper rsvp-reveal-item">
           <p className="wishlist-heading">Whislist</p>
 
           <div className="wishlist-list">
